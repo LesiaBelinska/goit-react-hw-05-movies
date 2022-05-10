@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { BiUser } from "react-icons/bi";
+import s from "./Cast.module.css"
 
-import * as api from "services/themoviedb-api.js";
+import * as API from "services/themoviedb-api.js";
 
 export default function Cast() {
 
@@ -9,19 +11,21 @@ export default function Cast() {
     const { movieId } = useParams();
     
     useEffect(() => {
-        api.fetchMovieCast(movieId).then(request=>setCasts(request.cast));
+        API.fetchMovieCast(movieId).then(request=>setCasts(request.cast));
     },[movieId])
     
 
     return (
         <>
             {casts && <>{casts.map((cast) => <li key={cast.id}>
-                <img
-                    src={api.POSTER_URL + cast.profile_path}
-                    alt={cast.name}
-                    width="100"
-                    height="150"
-                />
+                {cast.profile_path ?
+                    <img
+                        src={API.POSTER_URL + cast.profile_path}
+                        alt={cast.name}
+                        width="100"
+                        height="150"
+                    /> : <BiUser
+                        className={s.icon} />}
                 <p>{cast.name}</p>
             </li>)}</>
             }
