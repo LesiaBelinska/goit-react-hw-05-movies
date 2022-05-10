@@ -1,49 +1,51 @@
-// import { useState, useEffect } from "react";
-// import { useLocation, useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { SearchForm } from "components/SearchForm/SearchForm.jsx";
-//import * as theMoviedbapi from "services/themoviedb-api.js";
+import * as api from "services/themoviedb-api.js";
+
+
 
 export const MoviesPage = () => {
 
-    const onFormSubmit = () => {
-       
-   }
+    const [searchQuery, setSearchQuery] = useState('');
+    const [movies, setMovies] = useState([]);
+    const [, setSearchParams] = useSearchParams();
+    const location = useLocation();
 
+    
+    useEffect(() => {
+        if (searchQuery === '') {
+            return;
+        }
+
+        api.fetchSearchMovies(searchQuery)
+            .then(response => {
+                setMovies(response.results);
+            });
+    }, [searchQuery]);
+
+
+    const onFormSubmit = (value) => {
+        setSearchQuery(value);
+        setMovies([]);
+        setSearchParams({ query: value });
+    }
 
     return (
         <>
             <SearchForm onSubmit={onFormSubmit} />
-            {/* {movies && 
-                <div></div>
-            } */}
+            
+                <ul>
+                    {movies && movies.map(movie => 
+                        <li key={movie.id}>
+                            <Link to={`/movies/${movie.id}`} state={{from: location}}>{movie.title}</Link>
+                        </li>
+               )}
+            </ul>
+            
         </>
         
         
     )
 }
 
-//  const location = useLocation();
-//     const [searchQuery, setSearchQuery] = useState('');
-//     const [movies, setMovies] = useState([]);
-//     const [urlQuery, setUrlQuery] = useSearchParams();
-//     const currentSearchParam = urlQuery.get('query');
-
-
-//     useEffect(() => {
-//         setUrlQuery({query: searchQuery})
-//         theMoviedbapi.fetchSearchMovies(searchQuery)
-//             .then(response=> setMovies(response.results))
-           
-//     }, [searchQuery, setUrlQuery]
-//     )
-
-//     useEffect(() => {
-//         if (currentSearchParam) {
-//             setSearchQuery(currentSearchParam);
-//         }
-//     }, [currentSearchParam]);
-
-//     const onFormSubmit = query => {
-//         setSearchQuery(query);
-//         setMovies([]);
-//     }

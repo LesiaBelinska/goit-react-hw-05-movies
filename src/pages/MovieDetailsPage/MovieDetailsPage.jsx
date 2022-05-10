@@ -1,29 +1,34 @@
 import { useState, useEffect } from "react";
 
-import { useParams, NavLink, Outlet } from "react-router-dom";
+import { useParams, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import { BackLink } from "components/BackLink/BackLink.jsx";
-import * as theMoviedbapi from "services/themoviedb-api.js";
+import * as api from "services/themoviedb-api.js";
 
 
 
 
 export const MovieDetailsPage = () => {
-
+    
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
+    const navigate = useNavigate();
+    const location = useLocation();
+    
 
     useEffect(() => {
-        theMoviedbapi.fetchMovieDetails(movieId).then(setMovie);
+        api.fetchMovieDetails(movieId).then(setMovie);
     }, [movieId])
+
+    const onGoBack = () => navigate(location?.state?.from ?? "/");
     
     return (
         <>
-            <BackLink href="/" label="Go back"/>
+            <BackLink onClick={onGoBack} label="Go back"/>
             {movie &&
                 <>
                 <img
-                    src={theMoviedbapi.POSTER_URL + movie.poster_path}
+                    src={api.POSTER_URL + movie.poster_path}
                     alt={movie.title}
                     width="300"
                     height="450"
