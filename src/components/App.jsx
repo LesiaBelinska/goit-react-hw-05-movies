@@ -12,22 +12,28 @@ import { Loader } from "./loader/Loader.jsx";
 // import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage.jsx";
 
 const HomePage = lazy(() =>
-  import("pages/HomePage/HomePage.jsx"));
+  import("pages/HomePage/HomePage.jsx" /* webpackChunkName: "homePage" */),
+);
 
 const MoviesPage = lazy(() =>
-  import("pages/MoviesPage/MoviesPage.jsx"));
+  import("pages/MoviesPage/MoviesPage.jsx" /* webpackChunkName: "moviesPage" */),
+);
 
 const MovieDetailsPage = lazy(() =>
-  import("pages/MovieDetailsPage/MovieDetailsPage.jsx"));
+  import("pages/MovieDetailsPage/MovieDetailsPage.jsx" /* webpackChunkName: "moviesDetailsPage" */),
+);
 
 const Cast = lazy(() =>
-  import("pages/Cast/Cast.jsx"));
+  import("pages/Cast/Cast.jsx" /* webpackChunkName: "cast" */),
+);
 
 const Reviews = lazy(() =>
-  import("pages/Reviews/Reviews.jsx"));
+  import("pages/Reviews/Reviews.jsx" /* webpackChunkName: "reviews" */),
+);
 
 const NotFoundPage = lazy(() =>
-  import("pages/NotFoundPage/NotFoundPage.jsx"));
+  import("pages/NotFoundPage/NotFoundPage.jsx" /* webpackChunkName: "notFoundPage" */),
+);
 
 
 export const App = () => {
