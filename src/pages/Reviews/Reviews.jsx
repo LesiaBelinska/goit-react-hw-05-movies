@@ -1,27 +1,32 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import * as api from "services/themoviedb-api.js";
+import * as API from "services/themoviedb-api.js";
 
 
 export default function Reviews() {
 
     const { movieId } = useParams();
-    const [reviews, setReviews] = useState(null);
+    const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        api.fetchMovieReviews(movieId)
+        API.fetchMovieReviews(movieId)
             .then(request=>setReviews(request.results))
     }, [movieId]);
 
     return (
         <>
-            {reviews && 
-                reviews.map(review => <li key={review.id}>
-                    <p>Author: <span>{review.author}</span></p>
-                    <p>{review.content}</p>
-                </li>)
+            {reviews.length > 0 ?
+                <ul>
+                    {reviews.map(review =>
+                        <li key={review.id}>
+                            <p>Author: <span>{review.author}</span></p>
+                            <p>{review.content}</p>
+                        </li>
+                    )}
+                </ul>
+                : <p>We don't have any reviews for this movie.</p>
             }
         </>
-    )
-}
+    );
+};
