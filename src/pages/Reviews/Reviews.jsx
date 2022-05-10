@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import * as theMoviedbapi from "services/themoviedb-api.js";
+import * as api from "services/themoviedb-api.js";
 
 
 export const Reviews = () => {
@@ -10,7 +10,7 @@ export const Reviews = () => {
     const [reviews, setReviews] = useState(null);
 
     useEffect(() => {
-        theMoviedbapi.fetchMovieReviews(movieId)
+        api.fetchMovieReviews(movieId)
             .then(request=>setReviews(request.results))
     }, [movieId]);
 
