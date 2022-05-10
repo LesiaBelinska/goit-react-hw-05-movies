@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import * as theMoviedbapi from "services/themoviedb-api.js";
+import * as api from "services/themoviedb-api.js";
 
 export const Cast = () => {
 
@@ -9,7 +9,7 @@ export const Cast = () => {
     const { movieId } = useParams();
     
     useEffect(() => {
-        theMoviedbapi.fetchMovieCast(movieId).then(request=>setCasts(request.cast));
+        api.fetchMovieCast(movieId).then(request=>setCasts(request.cast));
     },[movieId])
     
 
@@ -17,7 +17,7 @@ export const Cast = () => {
         <>
             {casts && <>{casts.map((cast) => <li key={cast.id}>
                 <img
-                    src={theMoviedbapi.POSTER_URL + cast.profile_path}
+                    src={api.POSTER_URL + cast.profile_path}
                     alt={cast.name}
                     width="100"
                     height="150"
