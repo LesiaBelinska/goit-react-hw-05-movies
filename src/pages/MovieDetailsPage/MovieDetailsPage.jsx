@@ -8,7 +8,7 @@ import * as api from "services/themoviedb-api.js";
 
 
 
-export const MovieDetailsPage = () => {
+export default function MovieDetailsPage() {
     
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);

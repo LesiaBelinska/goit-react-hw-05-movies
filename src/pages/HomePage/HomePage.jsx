@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import * as api from "services/themoviedb-api.js";
 
-export const HomePage = () => {
+export default function HomePage() {
 
     const [movies, setMovies] = useState(null);
     const location = useLocation();

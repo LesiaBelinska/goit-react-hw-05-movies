@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import * as api from "services/themoviedb-api.js";
 
 
-export const Reviews = () => {
+export default function Reviews() {
 
     const { movieId } = useParams();
     const [reviews, setReviews] = useState(null);

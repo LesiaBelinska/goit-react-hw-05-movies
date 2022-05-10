@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import * as api from "services/themoviedb-api.js";
 
-export const Cast = () => {
+export default function Cast() {
 
     const [casts, setCasts] = useState(null);
     const { movieId } = useParams();

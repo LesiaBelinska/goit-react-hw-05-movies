@@ -5,7 +5,7 @@ import * as api from "services/themoviedb-api.js";
 
 
 
-export const MoviesPage = () => {
+export default function MoviesPage() {
 
     const [searchQuery, setSearchQuery] = useState('');
     const [movies, setMovies] = useState([]);
