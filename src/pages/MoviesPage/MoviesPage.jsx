@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link, useSearchParams, useLocation } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { SearchForm } from "components/SearchForm/SearchForm.jsx";
+import { MoviesList } from "components/MoviesList/MoviesList.jsx";
 import * as API from "services/themoviedb-api.js";
 
 
@@ -11,7 +12,6 @@ export default function MoviesPage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [movies, setMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
-    const location = useLocation();
     const currentSearchParams = searchParams.get('query');
     
     
@@ -47,14 +47,7 @@ export default function MoviesPage() {
     return (
         <>
             <SearchForm onSubmit={onFormSubmit} />
-            <ul>
-                {movies && movies.map(movie =>
-                    <li key={movie.id}>
-                        <Link to={`/movies/${movie.id}`} state={{ from: location }}>{movie.title}</Link>
-                    </li>
-                )}
-            </ul>
-            
+            <MoviesList movies={movies}/>  
         </>
     )
 }
