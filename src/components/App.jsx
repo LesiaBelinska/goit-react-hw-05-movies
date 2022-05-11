@@ -1,5 +1,6 @@
 import { lazy,Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import { Layout } from "./Layout/Layout.jsx";
 import { Loader } from "./loader/Loader.jsx";
@@ -38,6 +39,8 @@ const NotFoundPage = lazy(() =>
 
 export const App = () => {
   return (
+    <>
+      <Toaster />
     <Suspense fallback={<Loader />}>
       <Routes>
       <Route path="/" element={<Layout />}>
@@ -51,7 +54,6 @@ export const App = () => {
       </Route>
     </Routes>
     </Suspense>
-
-    
-  );
-};
+    </>
+  )
+}

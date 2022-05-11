@@ -1,4 +1,5 @@
 import { Formik, Form, Field } from "formik";
+import { toast } from "react-hot-toast";
 
 
 const initialValues = {
@@ -9,8 +10,8 @@ export const SearchForm = ({onSubmit}) => {
     
     const handleSubmit = (values, { resetForm }) => {
         if (values.query.trim() === '') {
-            alert('Enter search query');
-            return
+            toast('Enter name of the movie');
+            return;
         }
         onSubmit(values.query);
         resetForm();
@@ -19,16 +20,16 @@ export const SearchForm = ({onSubmit}) => {
     return (
         <Formik
             initialValues={initialValues}
-        onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}>
             <Form
-            autoComplete="off">
+                autoComplete="off">
                 <Field
                     type="text"
                     name="query"
                 />
                 <button
-                type="submit">Search</button>
-            </Form> 
+                    type="submit">Search</button>
+            </Form>
         </Formik>
     )
 }
