@@ -11,10 +11,10 @@ export default function HomePage() {
 
     useEffect(() => {
         api.fetchTrendingMovies()
-            .then(request => setMovies(request.results))
+            .then(response => setMovies(response.results))
             .catch(error => {
                 console.log(error);
-            });
+            })
     }, []);
 
 
