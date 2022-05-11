@@ -11,7 +11,7 @@ export default function Reviews() {
 
     useEffect(() => {
         API.fetchMovieReviews(movieId)
-            .then(request=>setReviews(request.results))
+            .then(response=>setReviews(response.results))
     }, [movieId]);
 
     return (
