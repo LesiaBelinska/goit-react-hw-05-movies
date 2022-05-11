@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link, useLocation } from "react-router-dom";
 import s from "./MoviesList.module.css";
 
@@ -9,7 +10,7 @@ export const MoviesList = ({ movies }) => {
         <ul className={s.list}>
             {movies && movies.map(movie =>
                 <li key={movie.id}
-                className={s.item}>
+                    className={s.item}>
                     <Link
                         to={`/movies/${movie.id}`}
                         state={{ from: location }}
@@ -21,3 +22,12 @@ export const MoviesList = ({ movies }) => {
         </ul>
     );
 }
+
+MoviesList.propTypes = {
+    movies: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number,
+            title: PropTypes.string,
+        }),
+    ).isRequired,
+};

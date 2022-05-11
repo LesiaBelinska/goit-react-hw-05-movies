@@ -6,5 +6,5 @@ export const AppBar = () => {
         <header className={s.header}>
             <Navigation />
         </header>
-    )
+    );
 }

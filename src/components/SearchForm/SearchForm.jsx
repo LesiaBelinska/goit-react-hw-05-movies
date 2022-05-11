@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Formik, Form, Field } from "formik";
 import { toast } from "react-hot-toast";
 
@@ -37,3 +38,7 @@ export const SearchForm = ({ onSubmit }) => {
         </Formik>
     );
 }
+
+SearchForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+};

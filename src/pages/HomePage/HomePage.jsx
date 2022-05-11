@@ -6,7 +6,7 @@ import * as api from "services/themoviedb-api.js";
 
 export default function HomePage() {
 
-    const [movies, setMovies] = useState(null);
+    const [movies, setMovies] = useState([]);
 
 
     useEffect(() => {

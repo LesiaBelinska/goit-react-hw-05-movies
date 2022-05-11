@@ -57,5 +57,5 @@ export const App = () => {
         </Suspense>
       </div>
     </>
-  )
+  );
 }
