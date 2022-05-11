@@ -1,0 +1,56 @@
+.wrapper {
+    display: flex;
+    margin-top: 40px;
+}
+
+.rightPart {
+    margin-left: 30px;
+}
+
+.nameTitle {
+    font-size: 36px;
+}
+
+.title {
+    margin-top: 60px;
+    font-size: 24px;
+}
+
+.text {
+    margin-top: 25px;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.ganre {
+    display: flex;
+}
+
+.ganreItem{
+    font-size: 18px;
+}
+
+.ganreItem:not(:last-child) {
+    margin-right: 12px;
+    
+}
+
+.bottomPart {
+    margin-top: 10px;
+    border-top: 2px solid rgba(61, 47, 55, 0.2);
+    border-bottom: 2px solid rgba(61, 47, 55, 0.2);
+    box-shadow: 1px rgba(20, 9, 16, 0.2);
+}
+
+.nav {
+    margin-top: 25px;
+}
+
+.navLink {
+    display: block;
+    font-size: 20px;
+}
+
+.item {
+    list-style: circle;
+}

@@ -8,5 +8,5 @@ export const Layout = () => {
             <AppBar />
             <Outlet />
         </div>
-    )
-}
+    );
+};

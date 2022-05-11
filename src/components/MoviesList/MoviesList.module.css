@@ -1,0 +1,11 @@
+.list {
+    margin-top: 40px;
+}
+
+.link {
+   text-decoration: underline; 
+}
+
+.item {
+    list-style: circle;
+}

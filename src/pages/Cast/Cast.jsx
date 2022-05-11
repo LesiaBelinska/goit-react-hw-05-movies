@@ -17,17 +17,24 @@ export default function Cast() {
 
     return (
         <>
-            {casts && <>{casts.map((cast) => <li key={cast.id}>
+            {casts && 
+                <ul className={s.list}>
+                    {casts.map((cast) => 
+                 <li key={cast.id}
+                    className={s.item}>
                 {cast.profile_path ?
                     <img
                         src={API.POSTER_URL + cast.profile_path}
                         alt={cast.name}
                         width="100"
-                        height="150"
+                                height="150"
+                                className={s.image}
                     /> : <BiUser
                         className={s.icon} />}
-                <p>{cast.name}</p>
-            </li>)}</>
+                <p className={s.name}>{cast.name}</p>
+            </li>
+            )}
+                </ul>
             }
         </>
     )

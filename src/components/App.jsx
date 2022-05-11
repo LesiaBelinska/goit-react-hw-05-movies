@@ -41,19 +41,21 @@ export const App = () => {
   return (
     <>
       <Toaster />
-    <Suspense fallback={<Loader />}>
-      <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="movies" exact element={<MoviesPage />} />
-        <Route path="movies/:movieId" element={<MovieDetailsPage />}>
-          <Route path="cast" element={<Cast />}/>
-          <Route path="reviews" element={<Reviews />} />
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
-    </Suspense>
+      <div className="container">
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="movies" exact element={<MoviesPage />} />
+              <Route path="movies/:movieId" element={<MovieDetailsPage />}>
+                <Route path="cast" element={<Cast />} />
+                <Route path="reviews" element={<Reviews />} />
+              </Route>
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Routes>
+        </Suspense>
+      </div>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import s from "./Reviews.module.css";
 import * as API from "services/themoviedb-api.js";
 
 
@@ -17,15 +17,15 @@ export default function Reviews() {
     return (
         <>
             {reviews.length > 0 ?
-                <ul>
+                <ul className={s.list}>
                     {reviews.map(review =>
-                        <li key={review.id}>
-                            <p>Author: <span>{review.author}</span></p>
-                            <p>{review.content}</p>
+                        <li key={review.id} className={s.item}>
+                            <p className={s.name}>Author: <span>{review.author}</span></p>
+                            <p className={s.text}>{review.content}</p>
                         </li>
                     )}
                 </ul>
-                : <p>We don't have any reviews for this movie.</p>
+                : <p className={s.notification}>We don't have any reviews for this movie.</p>
             }
         </>
     );
