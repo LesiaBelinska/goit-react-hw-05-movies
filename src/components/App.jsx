@@ -13,27 +13,27 @@ import { Loader } from "./loader/Loader.jsx";
 // import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage.jsx";
 
 const HomePage = lazy(() =>
-  import("pages/HomePage/HomePage.jsx" /* webpackChunkName: "homePage" */),
+  import("pages/HomePage/HomePage.jsx"),
 );
 
 const MoviesPage = lazy(() =>
-  import("pages/MoviesPage/MoviesPage.jsx" /* webpackChunkName: "moviesPage" */),
+  import("pages/MoviesPage/MoviesPage.jsx"),
 );
 
 const MovieDetailsPage = lazy(() =>
-  import("pages/MovieDetailsPage/MovieDetailsPage.jsx" /* webpackChunkName: "moviesDetailsPage" */),
+  import("pages/MovieDetailsPage/MovieDetailsPage.jsx"),
 );
 
 const Cast = lazy(() =>
-  import("pages/Cast/Cast.jsx" /* webpackChunkName: "cast" */),
+  import("pages/Cast/Cast.jsx"),
 );
 
 const Reviews = lazy(() =>
-  import("pages/Reviews/Reviews.jsx" /* webpackChunkName: "reviews" */),
+  import("pages/Reviews/Reviews.jsx"),
 );
 
 const NotFoundPage = lazy(() =>
-  import("pages/NotFoundPage/NotFoundPage.jsx" /* webpackChunkName: "notFoundPage" */),
+  import("pages/NotFoundPage/NotFoundPage.jsx" ),
 );
 
 
