@@ -40,7 +40,7 @@ export default function MoviesPage() {
     const onFormSubmit = (value) => {
         setSearchQuery(value);
         setMovies([]);
-        setSearchParams({ query: value });
+        setSearchParams({ query: value.trim() });
     };
 
 
